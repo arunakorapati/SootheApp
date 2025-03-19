@@ -5,4 +5,8 @@ type User = {
 };
 
 
+export type Theme =  "light" | "dark";
+export type PatientTabState = "Home" | "About" | "Team" | "Learn"|"Volunteers";
+
+export type VolunteerTabState="Home" | "About" | "Team" | "Learn"|"Volunteers";
 export default User;

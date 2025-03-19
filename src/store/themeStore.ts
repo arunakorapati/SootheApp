@@ -1,14 +1,15 @@
 import { create } from "zustand";
 import createSelectors from "./createSelectors";
+import { Theme } from "../types/types";
 
 interface ThemeState {
-  theme : string | null,
-  setTheme : (theme : string) => void; 
+  theme : Theme,
+  setTheme : (theme : Theme) => void; 
 }
 
 const useThemeStoreBase = create<ThemeState>((set) => ({
-  theme : "dark",
-  setTheme : (theme) => set({theme : theme})
+  theme : "light",
+  setTheme : (theme :  Theme) => set({theme : theme})
 }));
 
 const useThemeStore = createSelectors(useThemeStoreBase);

@@ -7,10 +7,12 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { DateClickArg } from "@fullcalendar/interaction";
 import SootheLogo from "../assets/SootheLogo.png";
+import useThemeStore from "@/store/themeStore";
 
 
 export default function VolunteerDashboard() {
    const [darkMode, setDarkMode] = useState(true);
+   const { theme } = useThemeStore();
    const [activeTab, setActiveTab] = useState("new");
    const [availability, setAvailability] = useState<{ title: string; start: string }[]>([]);
    const [volunteers, setVolunteers] = useState<{ name: string; type: "Medical" | "Non-Medical"; availability: string[] }[]>([]);
@@ -52,10 +54,11 @@ export default function VolunteerDashboard() {
        };
     return (
         <div
-     className={`${
-       darkMode ? "bg-white text-blue" : "bg-white text-black"
-     } min-h-screen overflow-auto`}
-   >
+              className={`${
+                theme === "dark" ? "bg-black text-white" : "bg-white text-black"
+              } min-h-screen overflow-auto`}
+            >
+          
    <div className="flex flex-col items-left p-2 bg-white">
        <CardHeader className="border-b border-gray-900">
          <h3 className="text-xl font-bold text-blue-900 pb-9">
